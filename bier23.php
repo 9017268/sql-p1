@@ -13,13 +13,13 @@
 
 require_once("dbconnbieren.php");
 
-$query = $db-> prepare("SELECT naam, stijl, brouwcode FROM `bier` WHERE brouwcode = 1230;");
+$query = $db-> prepare("SELECT biercode, naam, soort, stijl FROM `bier` WHERE soort LIKE '%ALE%' AND stijl LIKE '%STRONG%'");
 $query->execute();
 $resultq = $query->fetchALL(PDO::FETCH_ASSOC);
 foreach ($resultq as $data){
-    echo "code brouwer : " . $data["brouwcode"];
+    echo "code bier : " . $data["biercode"];
     echo "Naam : " . $data["naam"];
-    echo "Brouwcode : " . $data["brouwcode"];
+    echo "Soort : " . $data["soort"];
     echo "Stijl : " . $data["stijl"];
     echo"<br>";
 

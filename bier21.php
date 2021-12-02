@@ -7,24 +7,23 @@
     <title>Document</title>
 </head>
 <body>
+
 <?php
 
 // leg de verbinding met de database
 
 require_once("dbconnbieren.php");
 
-$query = $db-> prepare("SELECT naam, stijl, brouwcode FROM `bier` WHERE brouwcode = 1230;");
+$query = $db-> prepare("SELECT naam FROM `brouwer` WHERE naam LIKE '%A'");
 $query->execute();
 $resultq = $query->fetchALL(PDO::FETCH_ASSOC);
 foreach ($resultq as $data){
-    echo "code brouwer : " . $data["brouwcode"];
-    echo "Naam : " . $data["naam"];
-    echo "Brouwcode : " . $data["brouwcode"];
-    echo "Stijl : " . $data["stijl"];
+    echo "code naam : " . $data["naam"];
     echo"<br>";
 
 }
 
     ?>
+
 </body>
 </html>

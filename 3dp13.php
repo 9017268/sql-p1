@@ -11,20 +11,19 @@
 
 // leg de verbinding met de database
 
-require_once("dbconnbieren.php");
+require_once("dbconn3dp.php");
 
-$query = $db-> prepare("SELECT naam, stijl, brouwcode FROM `bier` WHERE brouwcode = 1230;");
+$query = $db-> prepare("SELECT voornaam, achternaam, gebdatum FROM `klant` WHERE gebdatum < '2000-01-01'");
 $query->execute();
 $resultq = $query->fetchALL(PDO::FETCH_ASSOC);
 foreach ($resultq as $data){
-    echo "code brouwer : " . $data["brouwcode"];
-    echo "Naam : " . $data["naam"];
-    echo "Brouwcode : " . $data["brouwcode"];
-    echo "Stijl : " . $data["stijl"];
+    echo "Voornaam: " . $data["voornaam"];
+    echo "Achternaam : " . $data["achternaam"];
+    echo "Gebdatum : " . $data["gebdatum"];
     echo"<br>";
 
 }
 
-    ?>
+    ?> 
 </body>
 </html>
