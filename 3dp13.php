@@ -23,7 +23,6 @@ foreach ($resultq as $data){
     echo"<br>";
 
 }
-
     ?> 
 </body>
 </html>
